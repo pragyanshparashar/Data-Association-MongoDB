@@ -1,7 +1,7 @@
 # Data Association MongoDB App
 
 A full-stack web application demonstrating user authentication, relational data modeling, and protected routes using MongoDB, Express, Node.js, and EJS.  
-This project showcases real-world backend architecture patterns such as JWT authentication, hashed passwords, middleware authorization, and schema relationships.
+This project showcases real-world backend architecture patterns such as JWT authentication, hashed passwords, middleware authorization, schema relationships, and file uploads.
 
 ---
 
@@ -17,6 +17,9 @@ This project showcases real-world backend architecture patterns such as JWT auth
 - User ↔ Post relationship (MongoDB references)
 - Server-side rendering using EJS
 - Session persistence using cookies
+- Profile image upload using Multer
+- Default profile picture for new users
+- User profile photo update support
 
 ---
 
@@ -25,6 +28,7 @@ This project showcases real-world backend architecture patterns such as JWT auth
 **Backend**
 - Node.js
 - Express.js
+- Multer (file upload handling)
 
 **Database**
 - MongoDB
@@ -47,32 +51,31 @@ This application follows a classic MVC-inspired backend pattern:
 
 Client → Routes → Middleware → Controller Logic → Database → View Rendering.
 
-
 Relationships implemented:
 
-User
-└── posts → references Post collection
+User  
+└── posts → references Post collection  
 
-Post
-└── user → references User collection
-└── likes → array of User references
-
+Post  
+└── user → references User collection  
+└── likes → array of User references  
 
 ---
 
 ## 🔐 Authentication Flow
 
-1. User registers
-2. Password is hashed
-3. JWT token is generated
-4. Token stored in cookies
-5. Protected routes verify token
-6. If valid → access granted
-7. If invalid → redirect to login
+1. User registers  
+2. Password is hashed  
+3. JWT token is generated  
+4. Token stored in cookies  
+5. Protected routes verify token  
+6. If valid → access granted  
+7. If invalid → redirect to login  
 
 ---
 
 ## 📂 Project Structure
+
 
 project/
 │
@@ -86,6 +89,10 @@ project/
 │ ├── profile.ejs
 │ └── edit.ejs
 │
+├── public/
+│ └── images/
+│ └── uploads/
+│
 ├── app.js
 └── package.json
 
@@ -94,6 +101,8 @@ Server runs on:
 
 http://localhost:4000
 
+
+---
 
 ---
 
@@ -114,6 +123,16 @@ http://localhost:4000
 
 ---
 
+## 🖼 Profile Image System
+
+- Default avatar assigned at registration
+- Images stored locally using Multer
+- Unique filename generation prevents conflicts
+- Static file serving configured via Express
+- Users can update profile image anytime
+
+---
+
 ## 🎯 Learning Outcomes
 
 This project demonstrates practical understanding of:
@@ -126,13 +145,14 @@ This project demonstrates practical understanding of:
 - MVC backend structuring
 - Full CRUD operations
 - Session management
+- File uploads handling
+- Static asset serving
 
 ---
 
 ## 🔮 Future Improvements
 
 - Delete posts
-- Profile pictures
 - Comment system
 - API version
 - REST architecture conversion
@@ -144,12 +164,10 @@ This project demonstrates practical understanding of:
 
 ## 👨‍💻 Pragyansh Parashar
 
-Built as a backend architecture practice project to master authentication, database relations, and real-world server logic.
+Built as a backend architecture practice project to master authentication, database relations, file handling, and real-world server logic.
 
 ---
 
 ⭐ If you found this project useful, consider starring the repo.
 
-GitHub Repo - https://github.com/pragyanshparashar/Data-Association-MongoDB
-
-
+GitHub Repo — https://github.com/pragyanshparashar/Data-Association-MongoDB
